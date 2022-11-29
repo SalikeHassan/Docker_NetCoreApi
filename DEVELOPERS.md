@@ -22,9 +22,17 @@ Follow below steps to run the api <br>
 
 ## Testing
 Follow the below steps to run unit test case <br>
-1)Go to any Test project folder. Ex: Open vs code terminal and go to folder <b>TestProject.ZipPay.Api.Tests</b> ,and run the command <b>dotnet test</b> 
+Go to any Test project folder. Ex: Open vs code terminal and go to folder <b>TestProject.ZipPay.Api.Tests</b> ,and run the command <b>dotnet test</b> 
 ![image](https://user-images.githubusercontent.com/18566830/204468488-af464b98-9ad0-47f7-9a83-cf37506c4073.png)
 ![image](https://user-images.githubusercontent.com/18566830/204469045-87197f4e-f6b9-434e-8939-91e77e0ac462.png)
+
+Follow below steps to test the api <br>
+1)<b>Create User API test:</b> Open swagger ui in browser by navigating to url <b>https://localhost:7011/swagger/index.html</b> Create new user by clicking the post button available in User section. After providing the details click on Execute button <br>
+See below screenshot for reference
+ ![image](https://user-images.githubusercontent.com/18566830/204472194-fd7a3743-ba6d-4c79-9606-3aabf9a817d6.png)
+ 
+ 2)
+
 
 
 ## Deploying
