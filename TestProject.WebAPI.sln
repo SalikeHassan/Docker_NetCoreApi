@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.ZipPay.Domain", "TestProject.Zip.Domain\TestProject.ZipPay.Domain.csproj", "{0EC001D4-CADB-476C-A5FD-0D0E566150EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.ZipPay.Contract", "TestProject.Zip.Contract\TestProject.ZipPay.Contract.csproj", "{C63F6907-2D4D-43B5-A296-5ABF79FFFD55}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.ZipPay.Infrastructure", "TestProject.Zip.Infrastructure\TestProject.ZipPay.Infrastructure.csproj", "{46162AAF-2C5C-479B-B7B9-712329C8AF2A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.ZipPay.Query", "TestProject.Zip.Query\TestProject.ZipPay.Query.csproj", "{7E33F366-8562-4ECE-BFCD-1FF123778EC4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.ZipPay.Command", "TestProject.Zip.Command\TestProject.ZipPay.Command.csproj", "{6E599E3B-E5FC-4515-9860-9554154A1B3E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.ZipPay.Common", "TestProject.Zip.Common\TestProject.ZipPay.Common.csproj", "{6B2CA8CD-BFC0-4C85-B83F-A58025CE0C43}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.ZipPay.Common.Test", "TestProject.ZipPay.Common.Test\TestProject.ZipPay.Common.Test.csproj", "{E7970E5C-5356-47AF-8CFB-B77127ABAA8D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.ZipPay.Api.Tests", "TestProject.ZipPay.Api.Tests\TestProject.ZipPay.Api.Tests.csproj", "{DB666083-6D24-48D9-A603-4B32F89A485F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.ZipPay.Query.Tests", "TestProject.ZipPay.Query.Tests\TestProject.ZipPay.Query.Tests.csproj", "{C571D505-E347-4A83-A961-570A37F44AF8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.ZipPay.Command.Test", "TestProject.ZipPay.Command.Test\TestProject.ZipPay.Command.Test.csproj", "{895723A1-386A-404F-A006-58E55962C71E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject.ZipPay.Api", "TestProject.ZipPay.Api\TestProject.ZipPay.Api.csproj", "{75DB8888-5208-4DFF-ADF5-5FECA508DB36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0EC001D4-CADB-476C-A5FD-0D0E566150EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EC001D4-CADB-476C-A5FD-0D0E566150EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EC001D4-CADB-476C-A5FD-0D0E566150EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EC001D4-CADB-476C-A5FD-0D0E566150EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C63F6907-2D4D-43B5-A296-5ABF79FFFD55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C63F6907-2D4D-43B5-A296-5ABF79FFFD55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C63F6907-2D4D-43B5-A296-5ABF79FFFD55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C63F6907-2D4D-43B5-A296-5ABF79FFFD55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46162AAF-2C5C-479B-B7B9-712329C8AF2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46162AAF-2C5C-479B-B7B9-712329C8AF2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46162AAF-2C5C-479B-B7B9-712329C8AF2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46162AAF-2C5C-479B-B7B9-712329C8AF2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E33F366-8562-4ECE-BFCD-1FF123778EC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E33F366-8562-4ECE-BFCD-1FF123778EC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E33F366-8562-4ECE-BFCD-1FF123778EC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E33F366-8562-4ECE-BFCD-1FF123778EC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E599E3B-E5FC-4515-9860-9554154A1B3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E599E3B-E5FC-4515-9860-9554154A1B3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E599E3B-E5FC-4515-9860-9554154A1B3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E599E3B-E5FC-4515-9860-9554154A1B3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B2CA8CD-BFC0-4C85-B83F-A58025CE0C43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B2CA8CD-BFC0-4C85-B83F-A58025CE0C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B2CA8CD-BFC0-4C85-B83F-A58025CE0C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B2CA8CD-BFC0-4C85-B83F-A58025CE0C43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7970E5C-5356-47AF-8CFB-B77127ABAA8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7970E5C-5356-47AF-8CFB-B77127ABAA8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7970E5C-5356-47AF-8CFB-B77127ABAA8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7970E5C-5356-47AF-8CFB-B77127ABAA8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB666083-6D24-48D9-A603-4B32F89A485F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB666083-6D24-48D9-A603-4B32F89A485F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB666083-6D24-48D9-A603-4B32F89A485F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB666083-6D24-48D9-A603-4B32F89A485F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C571D505-E347-4A83-A961-570A37F44AF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C571D505-E347-4A83-A961-570A37F44AF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C571D505-E347-4A83-A961-570A37F44AF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C571D505-E347-4A83-A961-570A37F44AF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{895723A1-386A-404F-A006-58E55962C71E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{895723A1-386A-404F-A006-58E55962C71E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{895723A1-386A-404F-A006-58E55962C71E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{895723A1-386A-404F-A006-58E55962C71E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75DB8888-5208-4DFF-ADF5-5FECA508DB36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75DB8888-5208-4DFF-ADF5-5FECA508DB36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75DB8888-5208-4DFF-ADF5-5FECA508DB36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75DB8888-5208-4DFF-ADF5-5FECA508DB36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{286BF85A-638E-4F48-B789-C9A5BD1DDC40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{286BF85A-638E-4F48-B789-C9A5BD1DDC40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{286BF85A-638E-4F48-B789-C9A5BD1DDC40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{286BF85A-638E-4F48-B789-C9A5BD1DDC40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C44C029-3DEE-4A54-A93B-A1C4CE747848}
+	EndGlobalSection
+EndGlobal
