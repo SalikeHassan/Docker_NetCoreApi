@@ -9,6 +9,8 @@
 
         public const string UserRegisterErrorMsg = "User is not registered.";
 
+        public const string DuplicateEmailAccErrorMsg = "User account already created with provided email.";
+
         public const int MinCreditLimit = 1000;
 
         public const string EmailErrorMsg = "Email is already in use.";

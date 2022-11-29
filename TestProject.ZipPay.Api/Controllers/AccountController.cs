@@ -8,6 +8,8 @@ using TestProject.ZipPay.Query.AccountQuery;
 using TestProject.ZipPay.Query.UserQuery;
 using static Microsoft.AspNetCore.Http.StatusCodes;
 using Serilog;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace TestProject.ZipPay.Api.Controllers
 {
@@ -148,6 +150,11 @@ namespace TestProject.ZipPay.Api.Controllers
                     //When user is not available in database table, sending not found status code
                     return this.BadRequest(Constant.UserRegisterErrorMsg);
                 }
+            }
+            catch(DbUpdateException ex)
+            {
+                this.logger.LogError(ex, ex.Message);
+                return this.BadRequest(Constant.DuplicateEmailAccErrorMsg);
             }
             catch (Exception ex)
             {
