@@ -27,11 +27,18 @@ Go to any Test project folder. Ex: Open vs code terminal and go to folder <b>Tes
 ![image](https://user-images.githubusercontent.com/18566830/204469045-87197f4e-f6b9-434e-8939-91e77e0ac462.png)
 
 Follow below steps to test the api <br>
-1)<b>Create User API test:</b> Open swagger ui in browser by navigating to url <b>https://localhost:7011/swagger/index.html</b> Create new user by clicking the post button available in User section. After providing the details click on Execute button <br>
+1)<b>Create user api test:</b> Open swagger ui in browser by navigating to url <b>https://localhost:7011/swagger/index.html</b>.<br> Create new user by clicking the <b>POST</b> button available in User section. After providing the details click on Execute button <br>
 See below screenshot for reference
  ![image](https://user-images.githubusercontent.com/18566830/204472194-fd7a3743-ba6d-4c79-9606-3aabf9a817d6.png)
  
- 2)
+ 2)<b>Get user by id api test:</b>Open swagger ui in browser by navigating to url <b>https://localhost:7011/swagger/index.html</b><br>
+  Click on Try it out button of api end point <b>GET /v1/user/{id}<b>
+  See below screenshots for reference
+  ![image](https://user-images.githubusercontent.com/18566830/204474793-75d79012-415f-4145-8d2f-edec6217cdde.png)
+
+  ![image](https://user-images.githubusercontent.com/18566830/204474565-be956b0b-d557-4aa0-a925-6ecfb288d6f9.png)
+
+  
 
 
 
