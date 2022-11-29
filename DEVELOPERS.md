@@ -12,46 +12,46 @@ Verify the Docker version by running command <b> docker -v</b> in vs code termin
 # User API Dev Guide
 <b>Api schema</b><br>
 1) <b>AccountDetailsResponse:</b><br>
-{
-      id	integer($int32)
+{<br>
+      id integer($int32) <br>
       accountHolderName	string
-      nullable: true
-      email	string
-      nullable: true
-      accountNumber	string
-      nullable: true
-      accountType	string
-      nullable: true
+      nullable: true <br>
+      email	string <br>
+      nullable: true <br>
+      accountNumber string
+      nullable: true <br>
+      accountType	string <br>
+      nullable: true <br>
   }
   
 2) <b>CreateAccountRequest:</b><br>
-{
-    email*	string
+{<br>
+    email*	string<br>
 }
 
 3) <b>CreateUserRequest:</b><br>
-{
-    firstName*	string
+{<br>
+    firstName*	string <br>
     middleName	string
-    nullable: true
-    lastName*	string
-    email*	string
-    salary*	number($double)
-    expense*	number($double)
-    gender*	string
+    nullable: true <br>
+    lastName*	string <br>
+    email*	string <br>
+    salary*	number($double) <br>
+    expense* number($double) <br>
+    gender*	string <br>
 }
 
 4) <b>UserDetailsResponse:</b><br>
-{
-    id	integer($int32)
+{<br>
+    id integer($int32)<br>
     name	string
-    nullable: true
+    nullable: true <br>
     email	string
-    nullable: true
-    salary	number($double)
-    expense	number($double)
-    gender	string
-    nullable: true
+    nullable: true <br>
+    salary	number($double) <br>
+    expense	number($double) <br>
+    gender	string <br>
+    nullable: true <br>
 }
 ## Building
 <b>Follow below steps to run the api</b> <br>
@@ -102,7 +102,3 @@ See below screenshot for reference
   See below screenshots for reference
   ![image](https://user-images.githubusercontent.com/18566830/204500776-6924959a-22be-42a3-8ae3-56e814e0d5ee.png)
   ![image](https://user-images.githubusercontent.com/18566830/204500948-22b319a2-714e-462f-8eff-bcf0ba370c1b.png)
-
-## Deploying
-
-## Additional Information
