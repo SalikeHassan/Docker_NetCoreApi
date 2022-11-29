@@ -21,12 +21,12 @@ Follow below steps to run the api <br>
    <img width="931" alt="image" src="https://user-images.githubusercontent.com/18566830/204467743-cc388a8b-3372-4e3d-8d4c-2fb9c6533dcf.png">
 
 ## Testing
-Follow the below steps to run unit test case <br>
+<b>Follow the below steps to run unit test case</b> <br>
 Go to any Test project folder. Ex: Open vs code terminal and go to folder <b>TestProject.ZipPay.Api.Tests</b> ,and run the command <b>dotnet test</b> 
 ![image](https://user-images.githubusercontent.com/18566830/204468488-af464b98-9ad0-47f7-9a83-cf37506c4073.png)
 ![image](https://user-images.githubusercontent.com/18566830/204469045-87197f4e-f6b9-434e-8939-91e77e0ac462.png)
 
-Follow below steps to test the api <br>
+<b>Follow below steps to test the User api</b> <br>
 1)<b>Create user api test:</b> Open swagger ui in browser by navigating to url <b>https://localhost:7011/swagger/index.html</b>.<br> Create new user by clicking the <b>POST</b> button available in User section. After providing the details click on Execute button <br>
 See below screenshot for reference
  ![image](https://user-images.githubusercontent.com/18566830/204472194-fd7a3743-ba6d-4c79-9606-3aabf9a817d6.png)
@@ -42,10 +42,24 @@ See below screenshot for reference
   Click on Try it out button of api end point <b>GET /v1/user/{pageNum}/{pageSize}</b>. After providing the page number and page size click on Execute button <br>
   See below screenshots for reference
   ![image](https://user-images.githubusercontent.com/18566830/204475829-756eab4b-93ef-4c3a-8632-26004d49cf5f.png)
-![image](https://user-images.githubusercontent.com/18566830/204475968-68c0bf84-f6e1-4356-9cdc-6a6dcc18d39c.png)
+  ![image](https://user-images.githubusercontent.com/18566830/204475968-68c0bf84-f6e1-4356-9cdc-6a6dcc18d39c.png)
 
+<b>Follow below steps to test the Account api</b> <br>
+1)<b>Create account api test:</b> Open swagger ui in browser by navigating to url <b>https://localhost:7011/swagger/index.html</b>.<br> Create new account by clicking the <b>POST /v1/account</b> button available in User section. After providing the details click on Execute button <br>
+See below screenshot for reference
+<img width="893" alt="image" src="https://user-images.githubusercontent.com/18566830/204498609-d24e41a9-b3d5-471c-b90a-44912872104d.png">
 
+ 2)<b>Get account by id api test:</b>Open swagger ui in browser by navigating to url <b>https://localhost:7011/swagger/index.html</b><br>
+  Click on Try it out button of api end point <b>GET /v1/account/{id}</b>. After providing the account id click on Execute button <br>
+  See below screenshots for reference
+  ![image](https://user-images.githubusercontent.com/18566830/204499169-e162bd72-82d6-4732-bd9c-c28367a11739.png)
+  ![image](https://user-images.githubusercontent.com/18566830/204500180-02c06469-8d04-4160-887d-325e7766cbaa.png)
 
+3)<b>Get accounts api test:</b>Open swagger ui in browser by navigating to url <b>https://localhost:7011/swagger/index.html</b><br>
+  Click on Try it out button of api end point <b>GET /v1/account/{pageNum}/{pageSize}</b>. After providing the page number and page size click on Execute button <br>
+  See below screenshots for reference
+  ![image](https://user-images.githubusercontent.com/18566830/204500776-6924959a-22be-42a3-8ae3-56e814e0d5ee.png)
+  ![image](https://user-images.githubusercontent.com/18566830/204500948-22b319a2-714e-462f-8eff-bcf0ba370c1b.png)
 
 ## Deploying
 
