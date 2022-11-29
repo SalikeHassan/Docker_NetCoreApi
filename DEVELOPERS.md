@@ -32,13 +32,18 @@ See below screenshot for reference
  ![image](https://user-images.githubusercontent.com/18566830/204472194-fd7a3743-ba6d-4c79-9606-3aabf9a817d6.png)
  
  2)<b>Get user by id api test:</b>Open swagger ui in browser by navigating to url <b>https://localhost:7011/swagger/index.html</b><br>
-  Click on Try it out button of api end point <b>GET /v1/user/{id}<b>
+  Click on Try it out button of api end point <b>GET /v1/user/{id}</b>. After providing the user id click on Execute button <br>
   See below screenshots for reference
   ![image](https://user-images.githubusercontent.com/18566830/204474793-75d79012-415f-4145-8d2f-edec6217cdde.png)
 
   ![image](https://user-images.githubusercontent.com/18566830/204474565-be956b0b-d557-4aa0-a925-6ecfb288d6f9.png)
 
-  
+  3)<b>Get users api test:</b>Open swagger ui in browser by navigating to url <b>https://localhost:7011/swagger/index.html</b><br>
+  Click on Try it out button of api end point <b>GET /v1/user/{pageNum}/{pageSize}</b>. After providing the page number and page size click on Execute button <br>
+  See below screenshots for reference
+  ![image](https://user-images.githubusercontent.com/18566830/204475829-756eab4b-93ef-4c3a-8632-26004d49cf5f.png)
+![image](https://user-images.githubusercontent.com/18566830/204475968-68c0bf84-f6e1-4356-9cdc-6a6dcc18d39c.png)
+
 
 
 
