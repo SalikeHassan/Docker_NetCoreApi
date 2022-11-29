@@ -47,7 +47,7 @@ namespace TestProject.ZipPay.Api.Controllers
 
                 if (!data.Any())
                 {
-                    this.logger.LogInformation("No user available");
+                    this.logger.LogInformation(Constant.NoUserLogMsg);
                     //Sending no content status when database table is not having user records
                     return this.NoContent();
                 }
@@ -94,7 +94,7 @@ namespace TestProject.ZipPay.Api.Controllers
 
                 else
                 {
-                    this.logger.LogInformation($"User not found for id : {id}");
+                    this.logger.LogInformation($"{Constant.NoUserByIdLogMsg}{id}");
                     //When user id is not available or user marked as inactive in database table, sending not found status code
                     return this.NotFound();
                 }

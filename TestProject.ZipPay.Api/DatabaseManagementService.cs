@@ -10,7 +10,7 @@ namespace TestProject.ZipPay.Api
         {
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
-                // Takes all of our migrations files and apply them against the database in case they are not implemented
+                // Takes all of our migrations files and apply them against the database in case they are not applied
                 var dbContext = serviceScope.ServiceProvider.GetRequiredService<ZipPayContext>();
                 if (dbContext.Database.IsSqlServer())
                 {
