@@ -21,6 +21,11 @@ Follow below steps to run the api <br>
    <img width="931" alt="image" src="https://user-images.githubusercontent.com/18566830/204467743-cc388a8b-3372-4e3d-8d4c-2fb9c6533dcf.png">
 
 ## Testing
+Follow the below steps to run unit test case <br>
+1)Go to any Test project folder. Ex: Open vs code terminal and go to folder <b>TestProject.ZipPay.Api.Tests</b> ,and run the command <b>dotnet test</b> 
+![image](https://user-images.githubusercontent.com/18566830/204468488-af464b98-9ad0-47f7-9a83-cf37506c4073.png)
+![image](https://user-images.githubusercontent.com/18566830/204469045-87197f4e-f6b9-434e-8939-91e77e0ac462.png)
+
 
 ## Deploying
 
