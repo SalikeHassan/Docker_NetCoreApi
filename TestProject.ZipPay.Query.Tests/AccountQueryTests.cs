@@ -3,10 +3,13 @@ using TestProject.ZipPay.Command.AccountCommand;
 using TestProject.ZipPay.Command.UserCommand;
 using TestProject.ZipPay.Infrastructure.Context;
 using TestProject.ZipPay.Query.AccountQuery;
+using TestProject.ZipPay.Query.UserQuery;
 using static TestProject.ZipPay.Command.AccountCommand.CreateAccountCommand;
 using static TestProject.ZipPay.Command.UserCommand.CreateUserCommand;
+using static TestProject.ZipPay.Query.AccountQuery.GetAccountCountQuery;
 using static TestProject.ZipPay.Query.AccountQuery.GetAccountDetailsByIdQuery;
 using static TestProject.ZipPay.Query.AccountQuery.GetAccountDetailsQuery;
+using static TestProject.ZipPay.Query.UserQuery.GetUserCountQuery;
 
 namespace TestProject.ZipPay.Query.Tests
 {
@@ -117,6 +120,23 @@ namespace TestProject.ZipPay.Query.Tests
                 var result = await handler.Handle(query, new CancellationToken());
 
                 Assert.That(result.Count, Is.EqualTo(1));
+            }
+        }
+
+        [Test]
+        [Order(5)]
+        public async Task Should_UserAccountCount_GreaterThanZero()
+        {
+
+            using (var context = new ZipPayContext(this.options))
+            {
+                var query = new GetAccountCountQuery();
+
+                var handler = new GetAccountCountQueryHandler(context);
+
+                var result = await handler.Handle(query, new CancellationToken());
+
+                Assert.That(result, Is.GreaterThan(0));
             }
         }
     }

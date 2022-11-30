@@ -36,5 +36,15 @@ namespace TestProject.ZipPay.Contract.Response
         /// Account type of user
         /// </summary>
         public string AccountType { get; set; }
+
+        /// <summary>
+        /// Monthly salary
+        /// </summary>
+        public decimal Salary { get; set; }
+
+        /// <summary>
+        /// Monthly expense
+        /// </summary>
+        public decimal Expense { get; set; }
     }
 }

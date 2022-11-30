@@ -7,9 +7,7 @@ using TestProject.ZipPay.Contract.Response;
 using TestProject.ZipPay.Query.AccountQuery;
 using TestProject.ZipPay.Query.UserQuery;
 using static Microsoft.AspNetCore.Http.StatusCodes;
-using Serilog;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
+using TestProject.ZipPay.Common.HelperMethod;
 
 namespace TestProject.ZipPay.Api.Controllers
 {
@@ -23,11 +21,9 @@ namespace TestProject.ZipPay.Api.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IMediator mediator;
-        private readonly ILogger<AccountController> logger;
-        public AccountController(IMediator mediator, ILogger<AccountController> logger)
+        public AccountController(IMediator mediator)
         {
             this.mediator = mediator;
-            this.logger = logger;
         }
 
         /// <summary>
@@ -43,34 +39,25 @@ namespace TestProject.ZipPay.Api.Controllers
         [ProducesResponseType(Status500InternalServerError)]
         public async Task<IActionResult> Get(int pageNum, int pageSize)
         {
-            try
+            //Get account query is called using mediator to get active users account available in the database table
+            var data = await this.mediator.Send(new GetAccountDetailsQuery() { pageNum = pageNum, pageSize = pageSize });
+
+            if (!data.Any())
             {
-                //Get account query is called using mediator to get active users account available in the database table
-                var data = await this.mediator.Send(new GetAccountDetailsQuery() { pageNum = pageNum, pageSize = pageSize });
-
-                if (!data.Any())
-                {
-                    this.logger.LogInformation(Constant.NoAccountLogMsg);
-                    //Sending no content status when database table either is not having any users account records or the available users account records are not in active state
-                    return this.NoContent();
-                }
-
-                else
-                {
-                    var response = new PaginationResponse<AccountDetailsResponse>()
-                    {
-                        PageNum = pageNum,
-                        PageSize = pageSize,
-                        Data = data,
-                        Total = data.Count
-                    };
-                    return this.Ok(response);
-                }
+                //Sending no content status when database table either is not having any users account records or the available users account records are not in active state
+                return this.NoContent();
             }
-            catch (Exception ex)
+
+            else
             {
-                this.logger.LogError(ex, ex.Message);
-                return this.StatusCode(500);
+                var response = new PaginationResponse<AccountDetailsResponse>()
+                {
+                    PageNum = pageNum,
+                    PageSize = pageSize,
+                    Data = data,
+                    Total = await this.mediator.Send(new GetAccountCountQuery())
+                };
+                return this.Ok(response);
             }
         }
 
@@ -85,27 +72,18 @@ namespace TestProject.ZipPay.Api.Controllers
         [ProducesResponseType(Status500InternalServerError)]
         public async Task<IActionResult> Get(int id)
         {
-            try
+            //Get user account by id query is called using mediator to get the user account details
+            var data = await this.mediator.Send(new GetAccountDetailsByIdQuery() { id = id });
+
+            if (data != null)
             {
-                //Get user account by id query is called using mediator to get the user account details
-                var data = await this.mediator.Send(new GetAccountDetailsByIdQuery() { id = id });
-
-                if (data != null)
-                {
-                    return this.Ok(data);
-                }
-
-                else
-                {
-                    this.logger.LogInformation($"{Constant.NoAccountByIdLogMsg}{id}");
-                    //When user account is not available in database table, sending not found status code
-                    return this.NotFound();
-                }
+                return this.Ok(data);
             }
-            catch (Exception ex)
+
+            else
             {
-                this.logger.LogError(ex, ex.Message);
-                return this.StatusCode(500);
+                //When user account is not available in database table, sending not found status code
+                return this.NotFound();
             }
         }
 
@@ -120,46 +98,33 @@ namespace TestProject.ZipPay.Api.Controllers
         [ProducesResponseType(Status500InternalServerError)]
         public async Task<IActionResult> Post([FromBody] CreateAccountRequest createAccountRequest)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    //Sending bad request status to client when request model validation failed
-                    return this.BadRequest();
-                }
-
-                //Get the user details based on the email id
-                var data = await this.mediator.Send(new GetUserByEmailQuery() { email = createAccountRequest.Email });
-
-                if (data != null)
-                {
-                    if (data.Salary - data.Expense < Constant.MinCreditLimit)
-                    {
-                        //Sending bad request when user  monthly salary - expense is less than 1000
-                        //User is not allowed to create the account
-                        return this.BadRequest(Constant.AccountErrorMsg);
-                    }
-
-                    //Create user account when model is valid and the difference of user salary and expense is greater than 1000
-                    await this.mediator.Send(new CreateAccountCommand() { createAccountRequest = createAccountRequest, userId = data.Id });
-
-                    return this.Ok();
-                }
-                else
-                {
-                    //When user is not available in database table, sending not found status code
-                    return this.BadRequest(Constant.UserRegisterErrorMsg);
-                }
+                //Sending bad request status to client when request model validation failed
+                return this.BadRequest();
             }
-            catch(DbUpdateException ex)
+
+            //Get the user details based on the email id
+            var data = await this.mediator.Send(new GetUserByEmailQuery() { email = createAccountRequest.Email });
+
+            if (data != null)
             {
-                this.logger.LogError(ex, ex.Message);
-                return this.BadRequest(Constant.DuplicateEmailAccErrorMsg);
+                if (Helper.ValidateMinCreditLimit(data.Salary, data.Expense))
+                {
+                    //Sending bad request when user  monthly salary - expense is less than 1000
+                    //User is not allowed to create the account
+                    return this.BadRequest(Constant.AccountErrorMsg);
+                }
+
+                //Create user account when model is valid and the difference of user salary and expense is greater than 1000
+                await this.mediator.Send(new CreateAccountCommand() { createAccountRequest = createAccountRequest, userId = data.Id });
+
+                return this.Ok();
             }
-            catch (Exception ex)
+            else
             {
-                this.logger.LogError(ex, ex.Message);
-                return this.StatusCode(500);
+                //When user is not available in database table, sending not found status code
+                return this.BadRequest(Constant.UserRegisterErrorMsg);
             }
         }
     }

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
@@ -8,6 +8,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
 		<PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
 	</ItemGroup>
 
@@ -36,6 +37,10 @@
 	  <ProjectReference Include="..\TestProject.Zip.Domain\TestProject.ZipPay.Domain.csproj" />
 	  <ProjectReference Include="..\TestProject.Zip.Infrastructure\TestProject.ZipPay.Infrastructure.csproj" />
 	  <ProjectReference Include="..\TestProject.Zip.Query\TestProject.ZipPay.Query.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Logs\" />
 	</ItemGroup>
 
 </Project>

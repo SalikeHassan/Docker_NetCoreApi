@@ -35,7 +35,9 @@ namespace TestProject.ZipPay.Query.AccountQuery
                         AccountHolderName = Helper.GetFullName(account.User.FirstName, account.User.MiddleName, account.User.LastName),
                         AccountNumber = account.AccountNumber,
                         AccountType = account.AccountType,
-                        Email = account.User.EmailId
+                        Email = account.User.EmailId,
+                        Salary = account.User.Salary,
+                        Expense = account.User.Expense
                     }).Skip((request.pageNum - 1) * request.pageSize)
                     .Take(request.pageSize)
                     .ToListAsync();

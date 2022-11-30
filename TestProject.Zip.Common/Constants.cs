@@ -24,5 +24,9 @@
         public const string NoUserLogMsg = "No user available";
 
         public const string NoUserByIdLogMsg = "User not found for id: ";
+
+        public const string ApplicationJsonContentType = "application/json";
+
+        public const string InternalServerErrMsg = "Internal server error.";
     }
 }

@@ -16,13 +16,11 @@ namespace TestProject.ZipPay.Api.Tests
     public class AccountControllerTest
     {
         private Mock<IMediator> mediator;
-        private Mock<ILogger<AccountController>> logger;
 
         [SetUp]
         public void Setup()
         {
             this.mediator = new Mock<IMediator>();
-            this.logger = new Mock<ILogger<AccountController>>();
         }
 
         [Test]
@@ -43,7 +41,7 @@ namespace TestProject.ZipPay.Api.Tests
             this.mediator.Setup(x => x.Send(It.IsAny<GetAccountDetailsQuery>(), new CancellationToken())).
                 ReturnsAsync(accountResponse);
 
-            var accountController = new AccountController(this.mediator.Object,this.logger.Object);
+            var accountController = new AccountController(this.mediator.Object);
 
             var result = await accountController.Get(1, 10) as OkObjectResult;
 
@@ -64,7 +62,7 @@ namespace TestProject.ZipPay.Api.Tests
             this.mediator.Setup(x => x.Send(It.IsAny<GetAccountDetailsQuery>(), new CancellationToken())).
               ReturnsAsync(new List<AccountDetailsResponse>());
 
-            var accountController = new AccountController(this.mediator.Object, this.logger.Object);
+            var accountController = new AccountController(this.mediator.Object);
 
             var result = await accountController.Get(1, 10) as NoContentResult;
 
@@ -87,7 +85,7 @@ namespace TestProject.ZipPay.Api.Tests
             this.mediator.Setup(x => x.Send(It.IsAny<GetAccountDetailsByIdQuery>(), new CancellationToken())).
                 ReturnsAsync(accountResponse);
 
-            var accountController = new AccountController(this.mediator.Object, this.logger.Object);
+            var accountController = new AccountController(this.mediator.Object);
 
             var result = await accountController.Get(1) as OkObjectResult;
 
@@ -109,7 +107,7 @@ namespace TestProject.ZipPay.Api.Tests
 
             this.mediator.Setup(x => x.Send(It.IsAny<GetAccountDetailsByIdQuery>(), new CancellationToken()));
 
-            var accountController = new AccountController(this.mediator.Object, this.logger.Object);
+            var accountController = new AccountController(this.mediator.Object);
 
             var result = await accountController.Get(1) as NotFoundResult;
 
@@ -139,7 +137,7 @@ namespace TestProject.ZipPay.Api.Tests
 
             this.mediator.Setup(x => x.Send(It.IsAny<CreateAccountCommand>(), new CancellationToken()));
 
-            var accountController = new AccountController(this.mediator.Object, this.logger.Object);
+            var accountController = new AccountController(this.mediator.Object);
 
             var result = await accountController.Post(createAccountRequest) as OkResult;
 
@@ -169,7 +167,7 @@ namespace TestProject.ZipPay.Api.Tests
 
             this.mediator.Setup(x => x.Send(It.IsAny<CreateAccountCommand>(), new CancellationToken()));
 
-            var accountController = new AccountController(this.mediator.Object,this.logger.Object);
+            var accountController = new AccountController(this.mediator.Object);
 
             var result = await accountController.Post(createAccountRequest) as BadRequestObjectResult;
 
@@ -188,7 +186,7 @@ namespace TestProject.ZipPay.Api.Tests
 
             this.mediator.Setup(x => x.Send(It.IsAny<CreateAccountCommand>(), new CancellationToken()));
 
-            var accountController = new AccountController(this.mediator.Object, this.logger.Object);
+            var accountController = new AccountController(this.mediator.Object);
             accountController.ModelState.AddModelError("Email", "Email id is required.");
 
             var result = await accountController.Post(new CreateAccountRequest()) as BadRequestResult;

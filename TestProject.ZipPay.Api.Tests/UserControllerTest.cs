@@ -16,14 +16,11 @@ namespace TestProject.ZipPay.Api.Tests
     public class UserControllerTest
     {
         private Mock<IMediator> mediator;
-        private Mock<ILogger<UserController>> logger;
-
 
         [SetUp]
         public void Setup()
         {
             this.mediator = new Mock<IMediator>();
-            this.logger = new Mock<ILogger<UserController>>();
         }
 
         [Test]
@@ -43,7 +40,7 @@ namespace TestProject.ZipPay.Api.Tests
             this.mediator.Setup(x => x.Send(It.IsAny<GetUsersQuery>(), new CancellationToken())).
                 ReturnsAsync(userDetailsResponses);
 
-            var userController = new UserController(this.mediator.Object, this.logger.Object);
+            var userController = new UserController(this.mediator.Object);
 
             var result = await userController.Get(1, 10) as OkObjectResult;
 
@@ -64,7 +61,7 @@ namespace TestProject.ZipPay.Api.Tests
             this.mediator.Setup(x => x.Send(It.IsAny<GetUsersQuery>(), new CancellationToken())).
               ReturnsAsync(new List<UserDetailsResponse>());
 
-            var userController = new UserController(this.mediator.Object, this.logger.Object);
+            var userController = new UserController(this.mediator.Object);
 
             var result = await userController.Get(1, 10) as NoContentResult;
 
@@ -86,7 +83,7 @@ namespace TestProject.ZipPay.Api.Tests
             this.mediator.Setup(x => x.Send(It.IsAny<GetUserByIdQuery>(), new CancellationToken())).
                 ReturnsAsync(userDetails);
 
-            var userController = new UserController(this.mediator.Object, this.logger.Object);
+            var userController = new UserController(this.mediator.Object);
 
             var result = await userController.Get(1) as OkObjectResult;
 
@@ -106,7 +103,7 @@ namespace TestProject.ZipPay.Api.Tests
         {
             this.mediator.Setup(x => x.Send(It.IsAny<GetUserByIdQuery>(), new CancellationToken()));
 
-            var userController = new UserController(this.mediator.Object, this.logger.Object);
+            var userController = new UserController(this.mediator.Object);
 
             var result = await userController.Get(1) as NotFoundResult;
 
@@ -130,7 +127,7 @@ namespace TestProject.ZipPay.Api.Tests
 
             this.mediator.Setup(x => x.Send(It.IsAny<CreateUserCommand>(), new CancellationToken()));
 
-            var userController = new UserController(this.mediator.Object, this.logger.Object);
+            var userController = new UserController(this.mediator.Object);
 
             var result = await userController.Post(createUserRequest) as OkResult;
 
@@ -165,7 +162,7 @@ namespace TestProject.ZipPay.Api.Tests
 
             this.mediator.Setup(x => x.Send(It.IsAny<CreateAccountCommand>(), new CancellationToken()));
 
-            var userController = new UserController(this.mediator.Object, this.logger.Object);
+            var userController = new UserController(this.mediator.Object);
 
             var result = await userController.Post(createUserRequest) as BadRequestObjectResult;
 
@@ -195,7 +192,7 @@ namespace TestProject.ZipPay.Api.Tests
 
             this.mediator.Setup(x => x.Send(It.IsAny<CreateAccountCommand>(), new CancellationToken()));
 
-            var userController = new UserController(this.mediator.Object, this.logger.Object);
+            var userController = new UserController(this.mediator.Object);
             userController.ModelState.AddModelError("Email", "Email id is required.");
 
             var result = await userController.Post(createUserRequest) as BadRequestResult;

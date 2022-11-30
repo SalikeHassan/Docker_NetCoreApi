@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using TestProject.ZipPay.Api;
 using TestProject.ZipPay.Infrastructure.Context;
 using Serilog;
+using TestProject.ZipPay.Api.CustomMiddleware;
 
 namespace TestProject.Zip.Api
 {
@@ -20,7 +21,7 @@ namespace TestProject.Zip.Api
                                 .CreateLogger();
 
             builder.Logging.AddSerilog(logger);
-            
+
             // Add services to the container.
             builder.Services.AddDbContext<ZipPayContext>(x => x.UseSqlServer(
                    builder.Configuration.GetConnectionString("ZipPayConnStr"),
@@ -68,6 +69,8 @@ namespace TestProject.Zip.Api
 
             var app = builder.Build();
 
+            app.UseMiddleware(typeof(ExceptionMiddleware));
+      
             DatabaseManagementService.MigrationInitialisation(app);
 
             // Configure the HTTP request pipeline.

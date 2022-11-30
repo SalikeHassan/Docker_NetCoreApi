@@ -48,5 +48,25 @@ namespace TestProject.ZipPay.Common.Test
             //Assert
             Assert.That("", Is.EqualTo(result));
         }
+
+        [Test]
+        public void Should_ValidateMinCreditLimit_Return_False()
+        {
+            //Act
+            var result = Helper.ValidateMinCreditLimit(2000, 100);
+
+            //Assert
+            Assert.That(false, Is.EqualTo(result));
+        }
+
+        [Test]
+        public void Should_ValidateMinCreditLimit_Return_True()
+        {
+            //Act
+            var result = Helper.ValidateMinCreditLimit(2000, 1800);
+
+            //Assert
+            Assert.IsTrue(result);
+        }
     }
 }

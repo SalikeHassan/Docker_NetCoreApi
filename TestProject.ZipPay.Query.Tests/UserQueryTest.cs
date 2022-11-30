@@ -5,6 +5,7 @@ using TestProject.ZipPay.Query.UserQuery;
 using static TestProject.ZipPay.Command.UserCommand.CreateUserCommand;
 using static TestProject.ZipPay.Query.UserQuery.GetUserByEmailQuery;
 using static TestProject.ZipPay.Query.UserQuery.GetUserByIdQuery;
+using static TestProject.ZipPay.Query.UserQuery.GetUserCountQuery;
 using static TestProject.ZipPay.Query.UserQuery.GetUsersQuery;
 
 namespace TestProject.ZipPay.Query.Tests
@@ -148,6 +149,23 @@ namespace TestProject.ZipPay.Query.Tests
                 var result = await handler.Handle(query, new CancellationToken());
 
                 Assert.IsNull(result);
+            }
+        }
+
+        [Test]
+        [Order(7)]
+        public async Task Should_UserCount_GreaterThanZero()
+        {
+
+            using (var context = new ZipPayContext(this.options))
+            {
+                var query = new GetUserCountQuery();
+
+                var handler = new GetUserCountQueryHandler(context);
+
+                var result = await handler.Handle(query, new CancellationToken());
+
+                Assert.That(result, Is.GreaterThan(0));
             }
         }
     }

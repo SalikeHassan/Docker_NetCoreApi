@@ -30,5 +30,16 @@ namespace TestProject.ZipPay.Common.HelperMethod
 
             return stringBuilder.ToString().Trim();
         }
+
+        /// <summary>
+        /// Validate minimum credit limit
+        /// </summary>
+        /// <param name="salary">User monthly salary</param>
+        /// <param name="expense">User monthly expense</param>
+        /// <returns></returns>
+        public static bool ValidateMinCreditLimit(decimal salary,decimal expense)
+        {
+            return salary - expense < Constant.MinCreditLimit;
+        }
     }
 }
